@@ -9,6 +9,7 @@
     <canvas id="myCanvas"' style="position: absolute; left: 0; top: 0">Tanks Game</canvas>
 <script type="text/javascript">
 
+
 var image_tank = 'image/tank-up.png'; 
 
 //элемент отрисовки
@@ -18,6 +19,34 @@ var ctx = canvas.getContext("2d");
 //Даннные игрока
 var x = canvas.width/2;
 var y = canvas.height/2;
+var speed=10;
+
+
+//функция обработки клавиш
+function key_Pressed(e){
+    switch(e.keyCode){
+         
+        case 37:  // если нажата клавиша влево           
+            x = x - speed; 
+            image_tank = 'image/tank-left.png'; 
+            break;
+        case 38:   // если нажата клавиша вверх
+            y = y - speed;
+            image_tank = 'image/tank-up.png'; 
+            break;
+        case 39:   // если нажата клавиша вправо
+            x = x + speed;
+            image_tank = 'image/tank-right.png'; 
+            break;
+        case 40:   // если нажата клавиша вниз
+             y = y + speed;
+             image_tank = 'image/tank-down.png'; 
+            break;
+    }
+}
+ 
+addEventListener("keydown", key_Pressed);
+
 
 
 //Функция отрисовки игрока
