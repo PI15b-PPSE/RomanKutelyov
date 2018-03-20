@@ -13,8 +13,8 @@ var y = canvas.height/2;
 var speed=10;
 
 //функция обработки клавиш
-function key_Pressed (e) {
-    switch(e.keyCode) {       
+function keypressed (e) {
+    switch (e.keyCode) {       
         case 37:  // если нажата клавиша влево           
             x = x - speed; 
             imagetank = 'image/tank-left.png'; 
@@ -34,25 +34,25 @@ function key_Pressed (e) {
     }
 }
  
-addEventListener("keydown", key_Pressed);
+addEventListener("keydown", keypressed);
 
 //Функция отрисовки игрока
-function drawTank() {
-    var example = document.getElementById("myCanvas");
+function drawtank () {
+	var example = document.getElementById("myCanvas");
     example.width = window.innerWidth;
     example.height = window.innerHeight;
     ctx = example.getContext('2d'); 
     ctx.fillRect(0, 0, screen.width, screen.height)
     pic = new Image();             
-    pic.src = imageTank;  
-    pic.onload = function() {    
-		ctx.drawImage(pic, x, y);  
+    pic.src = imagetank;  
+    pic.onload = function () {    
+        ctx.drawImage(pic, x, y);  
     };
 }
 
-function Render() {
+function render () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawTank();
+    drawtank();
 }
 
-setInterval(Render, 10);
+setInterval(render, 10);
