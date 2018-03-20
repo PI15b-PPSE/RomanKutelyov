@@ -5,14 +5,14 @@
   <head>
     <title>Tank Game</title>
     <audio autoplay id="myaudio">
-  <source src="sounds/music.mp3">
+  <source src="sounds/mainmusic.mp3">
 </audio>
   </head>
   <body>
     <canvas id="myCanvas"' style="position: absolute; left: 0; top: 0">Tanks Game</canvas>
 <script type="text/javascript">
 var audio = document.getElementById("myaudio");
-audio.volume = 0.1;
+audio.volume = 0.2;
 var imagetank = 'image/tank-up.png'; 
 //элемент отрисовки
 var canvas = document.getElementById("myCanvas");
@@ -20,7 +20,7 @@ var ctx = canvas.getContext("2d");
 //Даннные игрока
 var x = canvas.width/2;
 var y = canvas.height/2;
-var speed=10;
+var speed=20;
 //функция обработки клавиш
 function key_Pressed(e){
     switch(e.keyCode){
