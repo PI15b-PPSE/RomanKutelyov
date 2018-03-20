@@ -1,7 +1,7 @@
 var audio = document.getElementById("myaudio");
 audio.volume = 0.1;
 
-var imageTank = 'image/tank-up.png'; 
+var imagetank = 'image/tank-up.png'; 
 
 //элемент отрисовки
 var canvas = document.getElementById("myCanvas");
@@ -13,24 +13,23 @@ var y = canvas.height/2;
 var speed=10;
 
 //функция обработки клавиш
-function key_Pressed(e){
-    switch(e.keyCode){
-         
+function key_Pressed (e) {
+    switch(e.keyCode) {       
         case 37:  // если нажата клавиша влево           
             x = x - speed; 
-            imageTank = 'image/tank-left.png'; 
+            imagetank = 'image/tank-left.png'; 
             break;
         case 38:   // если нажата клавиша вверх
             y = y - speed;
-            imageTank = 'image/tank-up.png'; 
+            imagetank = 'image/tank-up.png'; 
             break;
         case 39:   // если нажата клавиша вправо
             x = x + speed;
-            imageTank = 'image/tank-right.png'; 
+            imagetank = 'image/tank-right.png'; 
             break;
         case 40:   // если нажата клавиша вниз
             y = y + speed;
-            imageTank = 'image/tank-down.png'; 
+            imagetank = 'image/tank-down.png'; 
             break;
     }
 }
@@ -39,7 +38,7 @@ addEventListener("keydown", key_Pressed);
 
 //Функция отрисовки игрока
 function drawTank() {
-	var example = document.getElementById("myCanvas");
+    var example = document.getElementById("myCanvas");
     example.width = window.innerWidth;
     example.height = window.innerHeight;
     ctx = example.getContext('2d'); 
