@@ -2,7 +2,7 @@ var canvas, context;
 var imgBrick, imgSteel, imgWater, imgForest, imgTank; 
 var aMap; 
 var oTank; 
-var iCellSize = 24; 
+var iCellSize = 26; 
 var iXCnt = 26; 
 var iYCnt = 26; 
 
