@@ -1,10 +1,25 @@
-var canvas, context; // canvas and context objects
-var imgBrick, imgSteel, imgWater, imgForest, imgTank; // images
-var aMap; // map array
-var oTank; // tank object
-var iCellSize = 24; // cell wide
-var iXCnt = 26; // amount of X cells
-var iYCnt = 26; // amount of Y cells
+/*!
+ * jQuery JavaScript Library v1.5.2
+ * http://jquery.com/
+ *
+ * Copyright 2011, John Resig
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * Includes Sizzle.js
+ * http://sizzlejs.com/
+ * Copyright 2011, The Dojo Foundation
+ * Released under the MIT, BSD, and GPL Licenses.
+ *
+ * Date: Thu Mar 31 15:28:23 2011 -0400
+ */
+var canvas, context; 
+var imgBrick, imgSteel, imgWater, imgForest, imgTank; 
+var aMap; 
+var oTank; 
+var iCellSize = 24; 
+var iXCnt = 26; 
+var iYCnt = 26; 
 
 function Tank(x, y, w, h, image) {
     this.x = x;
