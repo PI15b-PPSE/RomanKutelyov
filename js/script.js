@@ -1,10 +1,10 @@
-var canvas, context; 
-var imgBrick, imgSteel, imgWater, imgForest, imgTank; 
-var aMap; 
-var oTank; 
-var iCellSize = 24; 
-var iXCnt = 26; 
-var iYCnt = 26; 
+var canvas, context; // canvas and context objects
+var imgBrick, imgSteel, imgWater, imgForest, imgTank; // images
+var aMap; // map array
+var oTank; // tank object
+var iCellSize = 24; // cell wide
+var iXCnt = 26; // amount of X cells
+var iYCnt = 26; // amount of Y cells
 
 function Tank(x, y, w, h, image) {
     this.x = x;
