@@ -1,11 +1,146 @@
-var canvas, context; // canvas and context objects
-var imgBrick, imgSteel, imgWater, imgForest, imgTank; // images
-var aMap; // map array
-var oTank; // tank object
-var iCellSize = 24; // cell wide
-var iXCnt = 26; // amount of X cells
-var iYCnt = 26; // amount of Y cells
+/**
+* Логический канвас
+*
+* Используем объект document и метод
+* getElementById для присоединения
+* canvas с документа html. Дополнительная
+* детализация не нужна
+*
+* @var object canvas
+*/
+var canvas;
 
+/**
+* Контекст для канваса
+*
+* Позволяет рисовать по канвасу
+* в 2d режиме. Дполнительная
+* детализация не нужна
+*
+* @var object context
+*/
+var context; 
+
+/**
+* Изображение для кирпичного блока
+*
+* Содержит адрес изобрражение для кирпичного блока.
+* Долнительная детализация не нужна
+*
+* @var object imgBrick
+*/
+var imgBrick;
+
+/**
+* Изображение для стального блока
+*
+* Содержит адрес изобрражение для стального блока.
+* Долнительная детализация не нужна
+*
+* @var object imgSteel
+*/
+var imgSteel;
+
+/**
+* Изображение для водного блока
+*
+* Содержит адрес изобрражение для водного блока.
+* Долнительная детализация не нужна
+*
+* @var object imgWater
+*/
+var imgWater;
+
+/**
+* Изображение для лесного блока
+*
+* Содержит адрес изобрражение для лесного блока.
+* Долнительная детализация не нужна
+*
+* @var object imgForest
+*/
+var imgForest;
+
+/**
+* Изображение для танка
+*
+* Содержит адрес изобрражение для танка.
+* Долнительная детализация не нужна
+*
+* @var object imgTank
+*/
+var imgTank; 
+
+/**
+* Массив для хранения карты
+*
+* Содержит массив значений для хранения и отрисовки карты.
+* Долнительная детализация не нужна
+*
+* @var object aMap
+*/
+var aMap;
+
+/**
+* Обьект текущего танка
+*
+* Содержит все необходимые значения, текущего танка,
+* для его отрисовки, перемещения.
+* Долнительная детализация не нужна
+*
+* @var object oTank
+*/
+var oTank; 
+
+/**
+* Константа 24
+*
+* Используется в отрисовке
+* карты для определения размера одного блока.
+* Дополнительная детализация
+* не нужна
+*
+* @var object iCellSize
+*/
+var iCellSize = 24; 
+
+/**
+* Константа 26
+*
+* Используется в отрисовке
+* карты для определения количества блоков по X.
+* Дополнительная детализация
+* не нужна
+*
+* @var object iXCnt
+*/
+var iXCnt = 26; 
+
+/**
+* Константа 26
+*
+* Используется в отрисовке
+* карты для определения количества блоков по Y.
+* Дополнительная детализация
+* не нужна
+*
+* @var object iYCnt
+*/
+var iYCnt = 26; 
+
+/**
+* Работа со свойствами танка
+*
+* Если аргументы определены, то устанавливается новое
+* значения свойств Tank.
+*  
+* @param int x Текущая координата X
+* @param int y Текущая координата Y
+* @param int w Текущая ширина изображения танка
+* @param int h Текущая высота изображения танка
+* @param Image image Текущее изображение для отрисовки танка
+* @return void Ничего не возвращает
+*/
 function Tank(x, y, w, h, image) {
     this.x = x;
     this.y = y;
@@ -15,16 +150,30 @@ function Tank(x, y, w, h, image) {
     this.image = image;
 }
 
+/**
+* Работа со свойствами context
+*
+* Позволяет очистить элемент отрисовки.
+*  
+* @return void Ничего не возвращает
+*/
 function clear() { 
     context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+/**
+* Отрисовка сцены
+*
+* Отрисовывает текущую сцену
+* при изменении положения обьектов.
+*  
+* @return void Ничего не возвращает
+*/
 function drawScene() { 
     clear(); 
     context.fillStyle = '#111';
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.save();
-
     for (var y = 0; y < iYCnt; y++) { 
         for (var x = 0; x < iXCnt; x++) {
             switch (aMap[y][x]) {
@@ -49,6 +198,14 @@ function drawScene() {
     context.drawImage(oTank.image, oTank.i*oTank.w, 0, oTank.w, oTank.h, oTank.x, oTank.y, oTank.w, oTank.h);
 }
 
+/**
+* События нажатия клавиш
+*
+* Производит обработку нажатия всех клавиш,
+* изменяет данные карты при перемещении обьектов.
+*  
+* @return void Ничего не возвращает
+*/
 $(function () {
     canvas = document.getElementById('scene');
     canvas.width  = iXCnt * iCellSize;
