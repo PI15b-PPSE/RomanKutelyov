@@ -1,0 +1,36 @@
+book
+{
+background-color: #A9A9A9;
+width: 100%;
+}
+title
+{
+color: #0000FF;
+font-size: 20pt;
+}
+para
+{
+color: #0000FF;
+font-size: 14pt;
+}
+author
+{
+color: #000000;
+font-size: 14pt;
+}
+copyright
+{
+color: #FF0000;
+font-size: 14pt;
+}
+address
+{
+color: #008000;
+font-size: 14pt;
+ text-decoration: underline;
+}
+programlisting
+{
+color: #FF4500;
+font-size: 12pt;
+}
